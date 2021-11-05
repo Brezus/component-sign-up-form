@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!-- first section start -->
+      <section class="section section-1">
+        <h1 class="section-1-h1">Learn to code by <br />watching others</h1>
+        <p class="first-section-p">
+          See how experienced developers solve problems in real-time. Watching
+          scripted tutorials is great, but understanding how developers think is
+          invaluable.
+        </p>
+      </section>
+      <!-- first section end -->
+      <!-- second section start -->
+      <section class="section section-2">
+        <button class="btn btn-blue">
+          Try it free 7 days
+          <span class="blue-btn-span">then $20/mo. thereafter</span>
+        </button>
+        <!-- form start -->
+        <form action="" id="my-form" novalidate>
+          <div class="inp-cont first-name-cont">
+            <input
+              class="input-elem"
+              type="text"
+              name=""
+              id="first-name"
+              placeholder="First Name"
+            />
+            <img src="/images/icon-error.svg" alt="" class="error-img" />
+            <p class="error-msg">first name cannot be empty</p>
+          </div>
+          <div class="inp-cont last-name-cont">
+            <input
+              class="input-elem"
+              type="text"
+              name=""
+              id="last-name"
+              placeholder="Last Name"
+            />
+            <img src="/images/icon-error.svg" alt="" class="error-img" />
+            <p class="error-msg">last name cannot be empty</p>
+          </div>
+          <div class="inp-cont email-cont">
+            <input
+              class="input-elem"
+              type="email"
+              name=""
+              id="email"
+              placeholder="Email Address"
+            />
+            <img src="/images/icon-error.svg" alt="" class="error-img" />
+            <p class="error-msg">email field cannot be empty</p>
+          </div>
+          <div class="inp-cont email-cont">
+            <input
+              class="input-elem"
+              type="password"
+              name=""
+              id="password"
+              placeholder="Password"
+            />
+            <img src="/images/icon-error.svg" alt="" class="error-img" />
+            <p class="error-msg">password field cannot be empty</p>
+          </div>
+          <button class="btn btn-green">Claim your free trial</button>
+
+          <small
+            >By clicking the button, you are agreeing to our
+            <span class="red-span">Terms and Services</span></small
+          >
+          <div class="tandc-cont">
+            <div class="tandc animate">
+              <h2>Terms and conditions</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Praesentium est aliquam quia suscipit libero hic excepturi
+                quidem eligendi ab tempora mollitia reprehenderit obcaecati,
+                quas provident officiis nihil, saepe incidunt cupiditate. animi
+                nostrum adipisci veritatis asperiores repellat ipsam, accusamus
+                explicabo architecto delectus impedit optio ducimus sint non
+                assumenda voluptatum libero minus alias consequatur? Quia ipsum
+                eaque doloribus dicta eligendi impedit corrupti omnis ut
+                corporis quis est nostrum at numquam doloremque, sequi assumenda
+                commodi temporibus quas tempora sit dolores recusandae! Cum
+                dignissimos perferendis magni. Rem quos aliquam voluptate dolore
+                asperiores sit aut itaque quod hic eligendi velit cupiditate
+                iure reiciendis, fugiat corrupti. At illum vitae nisi similique
+                officia deserunt architecto sunt fugit, exercitationem tempore.
+                Veniam veritatis tenetur quam suscipit delectus distinctio
+                doloribus voluptatem maiores, laudantium ratione possimus! quo
+                est animi excepturi nesciunt blanditiis suscipit aut minima
+                praesentium sequi hic? In, ut? Earum incidunt tempora nulla
+                nihil deserunt aspernatur nostrum, iure,emque id aspernatur
+                saepe enim quam autem dolore repellendus deleniti! Omlet Du
+                framage
+              </p>
+            </div>
+            <p class="close">X</p>
+          </div>
+        </form>
+        <!-- form end -->
+      </section>
+      <!-- second section end -->
+      <footer>
+        <p class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by
+          <a href="https://www.frontendmentor.io/profile/Brezus" target="_blank"
+            >Millz</a
+          >.
+        </p>
+      </footer>
+    </main>
+
+    <script src="/src/index.js"></script>
+  </body>
+</html>
