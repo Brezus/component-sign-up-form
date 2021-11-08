@@ -92,7 +92,7 @@ select {
 
 body {
   background-color: var(--Red);
-  background-image: url("/images/bg-intro-mobile.png");
+  background-image: url("../images/bg-intro-mobile.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -222,7 +222,7 @@ small {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--Blue);
-  background-image: url("/images/bg-intro-mobile.png");
+  background-image: url("../images/bg-intro-mobile.png");
   background-size: cover;
   padding: 2rem;
   text-align: left;
@@ -259,7 +259,7 @@ small {
 
 @media screen and (min-width: 800px) {
   body {
-    background-image: url("/images/bg-intro-desktop.png");
+    background-image: url("../images/bg-intro-desktop.png");
   }
   main {
     display: grid;
