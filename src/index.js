@@ -73,6 +73,7 @@ function check() {
   if (firstNameValue == "") {
     setError(0, "name cannot be empty");
     firstName.classList.add("error");
+    noErros = false;
   } else if (firstNameValue) {
     removeErrors(0);
     firstName.classList.remove("error");
@@ -82,6 +83,7 @@ function check() {
   if (lastNameValue == "") {
     setError(1, "name cannot be empty");
     lastName.classList.add("error");
+    noErros = false;
   } else if (lastNameValue) {
     removeErrors(1);
     lastName.classList.remove("error");
@@ -91,9 +93,11 @@ function check() {
   if (emailValue == "") {
     setError(2, "cannot be empty");
     email.classList.add("error");
+    noErros = false;
   } else if (!validateEmail(emailValue)) {
     setError(2, "looks like this is not an email");
     email.classList.add("error");
+    noErros = false;
   } else {
     removeErrors(2);
     email.classList.remove("error");
@@ -103,13 +107,15 @@ function check() {
   if (passwordValue == "") {
     setError(3, "password cannot be empty");
     password.classList.add("error");
+    noErros = false;
   } else if (passwordValue.length < 6) {
     setError(3, "password too short just like me");
     password.classList.add("error");
+    noErros = false;
   } else {
     removeErrors(3);
     password.classList.remove("error");
-    noErros = termsAndCond;
+    noErros = true;
   }
   return noErros;
 }
