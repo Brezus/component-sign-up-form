@@ -92,7 +92,7 @@ select {
 
 body {
   background-color: var(--Red);
-  background-image: url("../images/bg-intro-mobile.png");
+  background-image: url("/images/bg-intro-mobile.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -103,7 +103,6 @@ main {
   padding: 5rem 0 2rem;
   color: white;
   text-align: center;
-  min-height: 100vh;
 }
 .section {
   width: 90%;
@@ -223,7 +222,7 @@ small {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--Blue);
-  background-image: url("../images/bg-intro-mobile.png");
+  background-image: url("/images/bg-intro-mobile.png");
   background-size: cover;
   padding: 2rem;
   text-align: left;
@@ -260,7 +259,7 @@ small {
 
 @media screen and (min-width: 800px) {
   body {
-    background-image: url("../images/bg-intro-desktop.png");
+    background-image: url("/images/bg-intro-desktop.png");
   }
   main {
     display: grid;
@@ -283,7 +282,9 @@ small {
     grid-column: 3;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    min-height: 100vh;
   }
   form {
     padding: 1.5rem 2.5rem;
