@@ -2,14 +2,26 @@ const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-let errorImg = document.querySelectorAll(".error-img");
-let errorMsg = document.querySelectorAll(".error-msg");
-let form = document.getElementById("my-form");
-let buttons = document.querySelectorAll(".btn");
-let redSpan = document.querySelector(".red-span");
-let termsCont = document.querySelector(".tandc-cont");
-let termsAndCond = document.querySelector(".tandc");
-let closeTerms = document.querySelector(".close");
+const errorImg = document.querySelectorAll(".error-img");
+const errorMsg = document.querySelectorAll(".error-msg");
+const form = document.getElementById("my-form");
+const buttons = document.querySelectorAll(".btn");
+const redSpan = document.querySelector(".red-span");
+const termsCont = document.querySelector(".tandc-cont");
+const termsAndCond = document.querySelector(".tandc");
+const closeTerms = document.querySelector(".close");
+const section2 = document.querySelector(".section-2");
+let firstNameValue = firstName.value;
+let lastNameValue = lastName.value;
+let passwordValue = password.value;
+let emailValue = email.value;
+let emailRgx =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let formData;
+let noErros = true;
+let userFirstName = "";
+let userLastName = "";
+let userEmail;
 
 redSpan.addEventListener("click", () => {
   termsCont.style.display = "block";
@@ -27,16 +39,27 @@ closeTerms.addEventListener("click", () => {
 });
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  formData = new FormData(e.target);
+  userFirstName = formData.get("fname");
+  userLastName = formData.get("lname");
+  userEmail = formData.get("email");
   check();
+  if (check()) {
+    section2.innerHTML = `<h1>Thanks ${userFirstName} for signing up with us check your inbox ${userEmail} for next steps</h1>`;
+  }
 });
 
-// firstName.addEventListener("input", check);
-// lastName.addEventListener("input", check);
-// email.addEventListener("input", check);
-// password.addEventListener("input", check);
-
 for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", check);
+  buttons[i].addEventListener("click", () => {
+    const formData = new FormData(form);
+    userFirstName = formData.get("fname");
+    userLastName = formData.get("lname");
+    userEmail = formData.get("email");
+    if (check()) {
+      check();
+      section2.innerHTML = `<h1>Thanks ${userFirstName} for signing up with us check your inbox ${userEmail} for next steps</h1>`;
+    }
+  });
 }
 
 window.onload = function () {
@@ -47,18 +70,13 @@ window.onload = function () {
 };
 
 function check() {
-  let firstNameValue = firstName.value;
-  let lastNameValue = lastName.value;
-  let passwordValue = password.value;
-  let emailValue = email.value;
-  let emailRgx =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (firstNameValue == "") {
     setError(0, "name cannot be empty");
     firstName.classList.add("error");
   } else if (firstNameValue) {
     removeErrors(0);
     firstName.classList.remove("error");
+    noErros = true;
   }
 
   if (lastNameValue == "") {
@@ -67,9 +85,7 @@ function check() {
   } else if (lastNameValue) {
     removeErrors(1);
     lastName.classList.remove("error");
-  }
-  function validateEmail(email) {
-    return emailRgx.test(email);
+    noErros = true;
   }
 
   if (emailValue == "") {
@@ -81,6 +97,7 @@ function check() {
   } else {
     removeErrors(2);
     email.classList.remove("error");
+    noErros = true;
   }
 
   if (passwordValue == "") {
@@ -92,7 +109,9 @@ function check() {
   } else {
     removeErrors(3);
     password.classList.remove("error");
+    noErros = termsAndCond;
   }
+  return noErros;
 }
 
 function setError(index, msg, inp) {
@@ -104,6 +123,10 @@ function setError(index, msg, inp) {
 function removeErrors(index) {
   errorImg[index].style.display = "none";
   errorMsg[index].style.display = "none";
+}
+
+function validateEmail(email) {
+  return emailRgx.test(email);
 }
 // useful sites
 // https://stackabuse.com/client-side-form-validation-using-vanilla-javascript/
