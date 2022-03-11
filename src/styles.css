@@ -296,6 +296,9 @@ small {
   footer {
     grid-column: 2;
     grid-row: 2;
+    position: absolute;
+    left: 76px;
+    top: 10px;
   }
   small {
     font-size: 0.7rem;
