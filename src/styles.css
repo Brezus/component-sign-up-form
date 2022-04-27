@@ -96,11 +96,10 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-
+  overflow: hidden;
   font-family: var(--ff);
 }
 main {
-  padding: 5rem 0 2rem;
   color: white;
   text-align: center;
 }
@@ -260,14 +259,14 @@ small {
 @media screen and (min-width: 800px) {
   body {
     background-image: url("/images/bg-intro-desktop.png");
+    display: grid;
+    place-items: center;
   }
   main {
     display: grid;
     grid-template-columns: 5vw 1fr 1fr 5vw;
-    grid-template-rows: 1fr auto;
-    padding-bottom: 0;
+    grid-template-rows: 1fr;
     justify-items: start;
-    padding-top: 2rem;
   }
   .section-1 {
     grid-column: 2;

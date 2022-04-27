@@ -39,6 +39,10 @@ closeTerms.addEventListener("click", () => {
 });
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  firstNameValue = firstName.value;
+  lastNameValue = lastName.value;
+  passwordValue = password.value;
+  emailValue = email.value;
   formData = new FormData(e.target);
   userFirstName = formData.get("fname");
   userLastName = formData.get("lname");
@@ -51,6 +55,10 @@ form.addEventListener("submit", (e) => {
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", () => {
+    firstNameValue = firstName.value;
+    lastNameValue = lastName.value;
+    passwordValue = password.value;
+    emailValue = email.value;
     const formData = new FormData(form);
     userFirstName = formData.get("fname");
     userLastName = formData.get("lname");
@@ -70,52 +78,47 @@ window.onload = function () {
 };
 
 function check() {
-  if (firstNameValue == "") {
+  if (!firstNameValue) {
     setError(0, "name cannot be empty");
     firstName.classList.add("error");
-    noErros = false;
   } else if (firstNameValue) {
     removeErrors(0);
     firstName.classList.remove("error");
-    noErros = true;
   }
 
-  if (lastNameValue == "") {
+  if (!lastNameValue) {
     setError(1, "name cannot be empty");
     lastName.classList.add("error");
-    noErros = false;
   } else if (lastNameValue) {
     removeErrors(1);
     lastName.classList.remove("error");
-    noErros = true;
   }
 
-  if (emailValue == "") {
+  if (!emailValue) {
     setError(2, "cannot be empty");
     email.classList.add("error");
-    noErros = false;
   } else if (!validateEmail(emailValue)) {
     setError(2, "looks like this is not an email");
     email.classList.add("error");
-    noErros = false;
   } else {
     removeErrors(2);
     email.classList.remove("error");
-    noErros = true;
   }
 
-  if (passwordValue == "") {
+  if (!passwordValue) {
     setError(3, "password cannot be empty");
     password.classList.add("error");
-    noErros = false;
   } else if (passwordValue.length < 6) {
     setError(3, "password too short just like me");
     password.classList.add("error");
-    noErros = false;
   } else {
     removeErrors(3);
     password.classList.remove("error");
+  }
+  if (passwordValue && emailValue && lastNameValue && firstNameValue) {
     noErros = true;
+  } else {
+    noErros = false;
   }
   return noErros;
 }
